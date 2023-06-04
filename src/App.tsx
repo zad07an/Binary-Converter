@@ -74,22 +74,24 @@ const App: React.FC = () => {
   console.log(selectValue);
 
   return (
-    <section className=" min-h-screen flex items-center justify-center">
-      <div className=" w-fit flex items-center flex-col gap-4 px-8 py-4 rounded-md bg-[#2d2d2d]">
+    <section className=" min-h-screen flex items-center justify-center px-20">
+      <div className=" w-fit flex items-center flex-col gap-4 p-8 rounded-md bg-[#2d2d2d]">
         <div>
-          <h1 className=" text-3xl text-white uppercase mb-2 font-bold">
+          <h1 className=" text-2xl sm:text-3xl text-white uppercase mb-2 font-bold">
             Converter
-            <span className=" text-sm font-normal">by Aram Zadoyan</span>
+            <span className=" ml-2 text-xs sm:text-sm font-normal">
+              by Aram Zadoyan
+            </span>
           </h1>
         </div>
         <form
           className=" w-full flex items-center flex-col gap-4"
           onSubmit={(e) => handleConverte(e, inputValue)}
         >
-          <div className=" w-full grid grid-cols-3 gap-4">
+          <div className=" w-full grid md:grid-cols-3 gap-4">
             <div className=" flex items-start flex-col gap-2 text-white">
-              <p>From</p>
-              <div className=" w-full py-2 bg-black flex items-center justify-center rounded-md">
+              <div className=" w-full py-2 bg-black flex items-center justify-center gap-2 rounded-md sm:text-base text-sm">
+                <p>From</p>
                 <p className=" font-semibold uppercase">{selectValue.from}</p>
               </div>
             </div>
@@ -103,36 +105,36 @@ const App: React.FC = () => {
               </button>
             </div>
             <div className=" flex items-start flex-col gap-2 text-white">
-              <p>To</p>
-              <div className=" w-full py-2 bg-black flex items-center justify-center rounded-md">
+              <div className=" w-full py-2 bg-black flex items-center justify-center gap-2 rounded-md sm:text-base text-sm">
+                <p>To</p>
                 <p className=" font-semibold uppercase">{selectValue.to}</p>
               </div>
             </div>
           </div>
-          <div className=" w-full grid grid-cols-2 gap-4">
+          <div className=" w-full grid md:grid-cols-2 gap-4">
             <input
               type="number"
               placeholder="Enter a number"
-              className=" px-4 py-1"
+              className=" pl-4 py-1 sm:text-base text-sm"
               value={!inputValue ? "" : inputValue}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setInputValue(Number(e.target.value))
               }
             />
-            <button className=" px-4 py-1 rounded-sm uppercase font-medium bg-orange-500 text-white">
+            <button className=" px-4 py-1 rounded-sm uppercase font-medium bg-orange-500 text-white sm:text-base text-sm">
               Convert
             </button>
           </div>
-          <p className=" text-red-500">{error && error}</p>
+          <p className=" sm:text-base text-sm text-red-500">{error && error}</p>
           <button
-            className=" py-2 w-full rounded-sm bg-red-600 text-white"
+            className=" sm:text-base text-sm py-2 w-full rounded-sm bg-red-600 text-white"
             onClick={handleReset}
           >
             Reset
           </button>
         </form>
         <div className=" w-full flex items-start flex-col gap-2">
-          <div className=" w-full flex items-center justify-between">
+          <div className=" sm:text-base text-sm w-full flex items-center justify-between">
             <p className=" text-white">Output:</p>
             <p
               onClick={handleCopy}
