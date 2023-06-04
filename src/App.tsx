@@ -142,7 +142,7 @@ const App: React.FC = () => {
             </p>
           </div>
           <div className=" w-full p-4 bg-[#9d9d9d] rounded-sm">
-            <p className=" text-lg text-gray-800">
+            <p className=" text-lg text-green-700 font-semibold tracking-[3px]">
               {selectValue.from === "decimal" && !output
                 ? "Ex: 11101001"
                 : output
